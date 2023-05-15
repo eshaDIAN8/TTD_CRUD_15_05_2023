@@ -22,7 +22,7 @@ public class TtdCrudController {
 	ObjectMapper mapper = new ObjectMapper();
 	
 	String formula;
-	@GetMapping("{convertedUnit}")
+	@GetMapping("/{convertedUnit}")
 	public ResponseEntity<String> getFormula(@PathVariable String convertedUnit) throws JsonProcessingException {
 		
 		try {
