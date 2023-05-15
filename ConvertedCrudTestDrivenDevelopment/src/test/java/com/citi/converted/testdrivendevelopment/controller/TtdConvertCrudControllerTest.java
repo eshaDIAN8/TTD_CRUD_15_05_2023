@@ -61,13 +61,13 @@ public class TtdConvertCrudControllerTest {
 		ObjectMapper mapper = new ObjectMapper();
 		String convertedUnit = "km-meter";		
 		String convertedData1 =	"{\"convertedUnit\":\"km-meter\"}";
-		String uri = "/getConvertedUnit/"+convertedUnit;
+		String uri = "/getConvertedUnit/{convertedUnit}";
 
 	     String formula	= (String) service.findByKey(convertedUnit);
 	     System.out.println("formula"+formula);
 
 	     MvcResult mvcResult = (MvcResult) mockMvc
-		.perform(MockMvcRequestBuilders.get(uri).param(convertedUnit, "km-meter"))
+		.perform(MockMvcRequestBuilders.get(uri,"km-meter"))
 		.andExpect(MockMvcResultMatchers.status().isOk())
 		.andExpect(MockMvcResultMatchers.content().string("*1000")).andReturn();
 		
